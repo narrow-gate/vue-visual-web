@@ -1,17 +1,48 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import {provide,ref} from 'vue'
+import Home from '@/components/home/index.vue'
+let usr=ref({})
+function fetchUsr(){
+  setTimeout(()=>{
+usr.value={
+  name:'test-usr',
+  age:16,
+  gender:'man',
+}
+console.log(11,usr.value);
+  },1000)
+}
+fetchUsr()
+provide('usr',usr)
+let menu=ref({})
+function fetchMenu(){
+  setTimeout(()=>{
+menu.value=[{
+   url:'/welcome',
+    appName: 'welcome',
+},{
+   url:'/page-one',
+    appName: 'page-one',
+}]
+console.log(27,menu.value);
+  },1000)
+}
+fetchMenu()
+provide('menu',menu)
+console.log(22);
 </script>
 
 <template>
-  <div>
+<Home/>
+  <!-- <div>
     <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
+    <span>Vite logo</span>  <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+    <span>logo vue</span>  <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+   <router-view></router-view> -->
 </template>
 
 <style scoped>
