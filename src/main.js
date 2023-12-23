@@ -7,4 +7,4 @@ import 'element-plus/dist/index.css'
 const app=createApp(App)
 app.use(router).use(ElementPlus)
 app.mount('#app')
-console.log(app,7)
+console.log(app,7,import.meta.env.VIHI_HI)
